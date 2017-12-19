@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="permissiondb@47.93.225.18" uuid="b43aa6e4-8d33-4853-a7c1-766a285d8744">
+      <database-info product="MySQL" version="5.7.19" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.30 ( Revision: alexander.soklakov@oracle.com-20140310090514-8xt1yoht5ksg2e7c )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:permissiondb</introspection-schemas>
+    </data-source>
+  </component>
+</project>

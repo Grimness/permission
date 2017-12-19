@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--<logger></logger>-->
+    <!--<appender name="permission" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--&lt;!&ndash; 存储路径 &ndash;&gt;-->
+        <!--<file>${catelina.home}/log/permission.log</file>-->
+        <!--&lt;!&ndash; 压缩相关 &ndash;&gt;-->
+        <!--<rollingPolicy class=" ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--<FileNamePattern>${catelina.home}/log/permission%d{yyyy-MM-dd}.log.gz</FileNamePattern>-->
+        <!--</rollingPolicy>-->
+        <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>-->
+        <!--</layout>-->
+    <!--</appender>-->
+    <!---->
+    <!--<logger name="xxx" level="INFO">-->
+        <!--<appender-ref ref="permission"/>-->
+    <!--</logger>-->
+
+    <!--TRACE < DEBUG < INFO < WARN < ERROR-->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

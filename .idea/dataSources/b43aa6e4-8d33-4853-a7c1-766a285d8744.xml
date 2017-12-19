@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="permissiondb@47.93.225.18">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="permissiondb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="comment"/>
+    <schema id="4" parent="1" name="db_blog"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mmall"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="seckill"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="test"/>
+    <schema id="12" parent="1" name="tonghu_1.0"/>
+    <schema id="13" parent="1" name="ylb-dev-1.0"/>
+    <table id="14" parent="2" name="sys_acl">
+      <Comment>权限表</Comment>
+    </table>
+    <table id="15" parent="2" name="sys_acl_module">
+      <Comment>权限模块表</Comment>
+    </table>
+    <table id="16" parent="2" name="sys_dept">
+      <Comment>部门表</Comment>
+    </table>
+    <table id="17" parent="2" name="sys_log">
+      <Comment>权限相关更新记录表</Comment>
+    </table>
+    <table id="18" parent="2" name="sys_role">
+      <Comment>角色表</Comment>
+    </table>
+    <table id="19" parent="2" name="sys_role_acl">
+      <Comment>角色与权限关联关系表</Comment>
+    </table>
+    <table id="20" parent="2" name="sys_role_user">
+      <Comment>角色与用户关联关系表</Comment>
+    </table>
+    <table id="21" parent="2" name="sys_user">
+      <Comment>用户表</Comment>
+    </table>
+    <column id="22" parent="14" name="id">
+      <Position>1</Position>
+      <Comment>权限 ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="14" name="code">
+      <Position>2</Position>
+      <Comment>权限码</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="24" parent="14" name="name">
+      <Position>3</Position>
+      <Comment>权限名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="25" parent="14" name="acl_module_id">
+      <Position>4</Position>
+      <Comment>权限所在的权限模块 ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="26" parent="14" name="url">
+      <Position>5</Position>
+      <Comment>请求的url,可以填正则表达式</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="27" parent="14" name="type">
+      <Position>6</Position>
+      <Comment>类型,1:菜单,2:按钮,3:其他</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;3&apos;</DefaultExpression>
+    </column>
+    <column id="28" parent="14" name="status">
+      <Position>7</Position>
+      <Comment>状态,1:正常,0:冻结</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="29" parent="14" name="seq">
+      <Position>8</Position>
+      <Comment>权限在当前模块下的顺序,由小到大</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="30" parent="14" name="remark">
+      <Position>9</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(200)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="31" parent="14" name="operator">
+      <Position>10</Position>
+      <Comment>操作者</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="32" parent="14" name="operator_time">
+      <Position>11</Position>
+      <Comment>最后一次操作时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="33" parent="14" name="operator_ip">
+      <Position>12</Position>
+      <Comment>最后一次操作 IP 地址</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="34" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="15" name="id">
+      <Position>1</Position>
+      <Comment>权限模块ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="15" name="name">
+      <Position>2</Position>
+      <Comment>权限模块名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="37" parent="15" name="parent_id">
+      <Position>3</Position>
+      <Comment>上级模块ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="38" parent="15" name="level">
+      <Position>4</Position>
+      <Comment>权限模块层级</Comment>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="39" parent="15" name="seq">
+      <Position>5</Position>
+      <Comment>权限模块在层级下的顺序,由小到大</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="40" parent="15" name="status">
+      <Position>6</Position>
+      <Comment>状态,1:正常,0:冻结</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="41" parent="15" name="remark">
+      <Position>7</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(200)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="42" parent="15" name="operator">
+      <Position>8</Position>
+      <Comment>操作者</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="43" parent="15" name="operator_time">
+      <Position>9</Position>
+      <Comment>操作时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="44" parent="15" name="operator_ip">
+      <Position>10</Position>
+      <Comment>操作IP</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="45" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="46" parent="16" name="id">
+      <Position>1</Position>
+      <Comment>部门 ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="16" name="name">
+      <Position>2</Position>
+      <Comment>部门名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="48" parent="16" name="parent_id">
+      <Position>3</Position>
+      <Comment>上级部门ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="49" parent="16" name="level">
+      <Position>4</Position>
+      <Comment>部门层级</Comment>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="50" parent="16" name="seq">
+      <Position>5</Position>
+      <Comment>部门在层级下的顺序,由小到大</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="51" parent="16" name="remark">
+      <Position>6</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(200)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="52" parent="16" name="operator">
+      <Position>7</Position>
+      <Comment>操作</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="53" parent="16" name="operator_time">
+      <Position>8</Position>
+      <Comment>操作时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="54" parent="16" name="operator_ip">
+      <Position>9</Position>
+      <Comment>操作IP</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="55" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="17" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="17" name="type">
+      <Position>2</Position>
+      <Comment>权限更新的类型,1:部门,2:用户,3:权限模块,4,权限,5:角色,6:角色与用户关系,7,角色与权限关系</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="58" parent="17" name="target_id">
+      <Position>3</Position>
+      <Comment>基于 type 后指定的对象ID,比如用户,权限,角色等表的主键</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="17" name="old_value">
+      <Position>4</Position>
+      <Comment>旧值</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="60" parent="17" name="new_value">
+      <Position>5</Position>
+      <Comment>新值</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="61" parent="17" name="operator">
+      <Position>6</Position>
+      <Comment>操作者</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="62" parent="17" name="operator_time">
+      <Position>7</Position>
+      <Comment>最后一次操作时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="63" parent="17" name="operator_ip">
+      <Position>8</Position>
+      <Comment>最后一次操作 IP</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="64" parent="17" name="status">
+      <Position>9</Position>
+      <Comment>当前数据是否复原过,0:没有复原,1,复原过</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="65" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="66" parent="18" name="id">
+      <Position>1</Position>
+      <Comment>角色ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="67" parent="18" name="name">
+      <Position>2</Position>
+      <Comment>角色名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="68" parent="18" name="type">
+      <Position>3</Position>
+      <Comment>角色类型,1:管理员角色,2:其他</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="69" parent="18" name="status">
+      <Position>4</Position>
+      <Comment>状态,1:可用,2:冻结</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="70" parent="18" name="remark">
+      <Position>5</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(200)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="71" parent="18" name="operator">
+      <Position>6</Position>
+      <Comment>操作者</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="72" parent="18" name="operator_time">
+      <Position>7</Position>
+      <Comment>最后一次操作时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="73" parent="18" name="operator_ip">
+      <Position>8</Position>
+      <Comment>最后一次操作 IP</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="74" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="75" parent="19" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="76" parent="19" name="role_id">
+      <Position>2</Position>
+      <Comment>角色 ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="19" name="acl_id">
+      <Position>3</Position>
+      <Comment>权限 ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="19" name="operator">
+      <Position>4</Position>
+      <Comment>操作者</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="79" parent="19" name="operator_time">
+      <Position>5</Position>
+      <Comment>最后一次操作时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="80" parent="19" name="operator_ip">
+      <Position>6</Position>
+      <Comment>最后一次操作 IP</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="81" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="82" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="20" name="role_id">
+      <Position>2</Position>
+      <Comment>角色 ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="20" name="user_id">
+      <Position>3</Position>
+      <Comment>用户 ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="20" name="operator">
+      <Position>4</Position>
+      <Comment>操作者</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="86" parent="20" name="operator_time">
+      <Position>5</Position>
+      <Comment>最后一次操作时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="87" parent="20" name="operator_ip">
+      <Position>6</Position>
+      <Comment>最后一次操作 IP</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="88" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="89" parent="21" name="id">
+      <Position>1</Position>
+      <Comment>用户ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="21" name="username">
+      <Position>2</Position>
+      <Comment>用户名称</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="91" parent="21" name="telephone">
+      <Position>3</Position>
+      <Comment>手机号</Comment>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="92" parent="21" name="mail">
+      <Position>4</Position>
+      <Comment>邮箱</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="93" parent="21" name="password">
+      <Position>5</Position>
+      <Comment>加密后的密码</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="94" parent="21" name="dept_id">
+      <Position>6</Position>
+      <Comment>用户所在部门 ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="95" parent="21" name="status">
+      <Position>7</Position>
+      <Comment>状态 1:正常状态,0:冻结状态,2:删除状态</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="96" parent="21" name="remark">
+      <Position>8</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(200)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="97" parent="21" name="operator">
+      <Position>9</Position>
+      <Comment>操作人</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="98" parent="21" name="operator_time">
+      <Position>10</Position>
+      <Comment>最后一次操作时间</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="99" parent="21" name="operator_ip">
+      <Position>11</Position>
+      <Comment>操作 IP</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="100" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
